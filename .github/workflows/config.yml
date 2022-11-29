@@ -32,7 +32,7 @@ jobs:
           ./gradlew testDebugUnitTest
 
       - name: Generate JaCoCo Badge
-          id: jacoco
-          uses: cicirello/jacoco-badge-generator@v2
-          with:
-            jacoco-csv-file: build/reports/jacoco/jacoco.csv
+        id: jacoco
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          jacoco-csv-file: build/reports/jacoco/jacoco.csv
