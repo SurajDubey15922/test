@@ -29,11 +29,10 @@ jobs:
       - name: Run Coverage
         run: |
           chmod +x gradlew
-          ./gradlew jacocoTestReport
+          ./gradlew testDebugUnitTest
 
-      - name: Add coverage to PR
-        id: jacoco
-        uses: madrapps/jacoco-report@v1.3
-        with:
-          paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate JaCoCo Badge
+          id: jacoco
+          uses: cicirello/jacoco-badge-generator@v2
+          with:
+            jacoco-csv-file: build/reports/jacoco/jacoco.csv
