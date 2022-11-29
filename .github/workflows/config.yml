@@ -26,9 +26,6 @@ jobs:
             }
             run_with_retry
 
-      - name: Unit Test
-        run: ./gradlew testDebugUnitTest
-
       - name: Run Coverage
         run: |
           chmod +x gradlew
