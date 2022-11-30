@@ -33,6 +33,8 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
         xml.required.set(true)
         html.required.set(true)
         csv.required.set(true)
+        html.destination file("${buildDir}/reports/jacoco/Html")
+        csv.destination file("${buildDir}/reports/jacoco/jacoco.csv")
     }
 
     sourceDirectories.setFrom(files([mainSrc]))
