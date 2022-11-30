@@ -64,7 +64,7 @@ check.dependsOn jacocoTestCoverageVerification
 
 android {
     namespace 'com.example.githubaction'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.githubaction"
