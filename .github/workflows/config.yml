@@ -15,7 +15,7 @@ jobs:
              until [ $n -gt $MAX_TRIES ]
              do
                 echo "Starting build attempt $n"
-                ./gradlew assembleDebugAndroidTest && break
+                ./gradlew build && break
                 n=$[$n+1]
                 sleep 2
              done
