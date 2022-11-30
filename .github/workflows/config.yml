@@ -30,8 +30,10 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew jacocoTestReport
-      - uses: actions/upload-artifact@v2
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
         with:
-        name: backend-coverage
-        path: ./coverage.xml
+          paths: ${{ github.workspace }}/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
+
 
