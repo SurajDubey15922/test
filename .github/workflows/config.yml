@@ -35,9 +35,22 @@ jobs:
       - name: Run Coverage
         run: ./gradlew jacocoTestReport
 
-      - name: Generate JaCoCo Badge
-        uses: cicirello/jacoco-badge-generator@v2
+      - name: Upload Report
+        uses: 'actions/upload-artifact@v2'
         with:
-          generate-branches-badge: true
-          jacoco-csv-file: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.csv
+          name: report.xml
+          path: ${{ github.workspace }}/build/reports
+      - name: Jacoco Report to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.1
+        with:
+          path: ${{ github.workspace }}/build/reports
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Get the Coverage info
+        run: |
+          echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+          echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
+
 
