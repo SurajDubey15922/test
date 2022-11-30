@@ -33,6 +33,9 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Coverage
+        run: ./gradlew build
+
+      - name: Run Coverage
         run: ./gradlew testCoverage
 
 
