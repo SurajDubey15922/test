@@ -39,7 +39,7 @@ jobs:
         uses: 'actions/upload-artifact@v2'
         with:
           name: report.xml
-          path: app/build/reports/jacoco/jacocoTestReport
+          path: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
 
 
 
