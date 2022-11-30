@@ -40,12 +40,7 @@ jobs:
         with:
           name: report.xml
           path: app/build/reports
-      - name: Jacoco Report to PR
-        id: jacoco
-        uses: madrapps/jacoco-report@v1.1
-        with:
-          path: ${{ github.workspace }}/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
-          token: ${{ secrets.GITHUB_TOKEN }}
+
 
 
       - name: Get the Coverage info
