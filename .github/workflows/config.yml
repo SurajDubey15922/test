@@ -34,6 +34,6 @@ jobs:
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
         with:
-          paths: ${{ github.workspace }}/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
+          paths: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
           token: ${{ secrets.GITHUB_TOKEN }}
 
