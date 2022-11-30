@@ -30,4 +30,8 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew jacocoTestReport
+      - uses: actions/upload-artifact@v2
+        with:
+        name: backend-coverage
+        path: ./coverage.xml
 
