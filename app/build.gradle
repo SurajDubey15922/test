@@ -35,6 +35,21 @@ task jacocoTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
     ]))
 }
 
+task jacocoTestCoverageVerification(type: JacocoCoverageVerification, dependsOn: 'jacocoTestReport') {
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([javaTree,kotlinTree]))
+    executionData.setFrom(fileTree(dir: project.buildDir, includes: ['outputs/code_coverage/debugAndroidTest/connected/**/*.ec'
+    ]))
+    violationRules {
+        failOnViolation = true
+        rule {
+            limit {
+                minimum = 0.5
+            }
+        }
+    }
+}
+
 
 android {
     namespace 'com.example.githubaction'

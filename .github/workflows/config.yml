@@ -33,7 +33,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Coverage
-        run: ./gradlew jacocoTestReport
+        run: ./gradlew jacocoTestCoverageVerification
 
 
       - name: Generate JaCoCo Badge
