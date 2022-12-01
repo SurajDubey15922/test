@@ -38,7 +38,10 @@ jobs:
       - name: Send mail
         uses: dawidd6/action-send-mail@v2
         with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
+          username: suraj.dubey@sunfox.in
+          # Optional (recommended) mail server password:
+          password: Surajd@2791
+
           server_address: smtp.gmail.com
           server_port: 465
           subject: Github Actions job result
