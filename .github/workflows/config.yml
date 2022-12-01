@@ -46,6 +46,7 @@ jobs:
           subject: Github Actions job result
           to: surajdubey2791@gmail.com
           from: Suraj
+          attachments: app/build/reports/jacoco/jacocoTestReport/html/index.html
 
 
       - name: Generate JaCoCo Badge
