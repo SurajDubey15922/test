@@ -41,8 +41,6 @@ jobs:
           connection_url: ${{secrets.MAIL_CONNECTION}}
           server_address: smtp.gmail.com
           server_port: 465
-          username: suraj.dubey@sunfox.in
-          password: Surajd@2791
           subject: Github Actions job result
           to: surajdubey2791@gmail.com
           from: Suraj
