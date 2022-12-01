@@ -33,7 +33,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Coverage
-          run: ./gradlew testCoverage
+        run: ./gradlew testCoverage
 
 
       - name: Jacoco Report to PR
