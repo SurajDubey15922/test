@@ -33,7 +33,13 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Coverage
-        run: ./gradlew jacocoTestCoverageVerification
+        run: ./gradlew jacocoTestReport
+
+      - name: Upload JaCoCo coverage report
+          uses: actions/upload-artifact@v2
+          with:
+            name: jacoco-report
+            path: app/build/reports/jacoco/jacocoTestReport/
 
 
       - name: Generate JaCoCo Badge
