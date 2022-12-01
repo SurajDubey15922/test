@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: jacoco-report
-          path: app/build/reports/jacoco/jacocoTestReport/
+          path: app/build/reports/jacoco/jacocoTestReport/html/index.html
 
 
       - name: Generate JaCoCo Badge
