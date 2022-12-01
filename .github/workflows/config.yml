@@ -42,5 +42,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: jacoco-report
-          path: app/build/jacoco/
+          path: app/build/reports/jacoco/
 
