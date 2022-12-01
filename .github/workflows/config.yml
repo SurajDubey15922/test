@@ -25,7 +25,7 @@ jobs:
              fi
             }
             run_with_retry
-      - name: Set up JDK 1.8
+      - name: Set up JDK
         uses: actions/setup-java@v1
         with:
           java-version: '11'
