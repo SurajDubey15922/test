@@ -29,6 +29,9 @@ jobs:
       - name: Run Coverage
         run: ./gradlew jacocoTestReport
 
+      - name: Run Verification
+        run: ./gradlew jacocoTestCoverageVerification
+
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v2
         with:
