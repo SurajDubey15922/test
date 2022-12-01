@@ -25,12 +25,6 @@ jobs:
              fi
             }
             run_with_retry
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: '11'
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
 
       - name: Run Coverage
         run: ./gradlew jacocoTestReport
