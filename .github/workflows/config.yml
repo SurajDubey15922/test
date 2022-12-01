@@ -33,7 +33,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Coverage
-        run: ./gradlew jacocoTestCoverageVerification
+        run: ./gradlew testCoverage
 
       - name: Upload JaCoCo coverage report as a workflow artifact
         uses: actions/upload-artifact@v2
