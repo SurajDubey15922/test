@@ -42,25 +42,6 @@ jobs:
           generate-branches-badge: true
           jacoco-csv-file: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.csv
 
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v2
-        with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{secrets.MAIL_USERNAME}}
-          password: ${{secrets.MAIL_PASSWORD}}
-          subject: Github Actions job result
-          to: surajdubey2791@gmail.com
-          from: suraj.dubey@sunfox.in # <user@example.com>
-          # Optional content type (defaults to text/plain):
-          content_type: text/html
-          attachments:
-            - filename: 'text1.txt'
-              content: 'aGVsbG8gd29ybGQh'
-              encoding: 'base64'
-            - filename: git.diff
-            - filename: 'index.html',
-              path: 'app/build/reports/jacoco/jacocoTestReport/html/index.html'
+
 
 
