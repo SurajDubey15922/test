@@ -32,12 +32,16 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Run Coverage
-        run: ./gradlew testCoverage
+      - name: Unit Test with Android Emulator Runner
+        uses: ReactiveCircus/android-emulator-runner@v2.14.3
+        with:
+          api-level: 33
+          script: ./gradlew connectedCheck
 
-      - name: Upload JaCoCo coverage report as a workflow artifact
+
+      - name: generate report
         uses: actions/upload-artifact@v2
         with:
-          name: jacoco-report
-          path: app/build/reports/jacoco/
+          name: report
+          path: app/build/reports/coverage/debug
 
