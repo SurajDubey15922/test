@@ -1,6 +1,6 @@
 package com.example.githubaction
 
-import com.example.jacoco.Operators
+
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
