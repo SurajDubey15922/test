@@ -2,10 +2,10 @@ package com.example.githubaction
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
-import com.example.jacoco.MainState
 import com.saurabhbadola.statesman.BaseViewModel
 
-class MainViewModel(application: Application) :BaseViewModel<MainState>(application) {
+
+class MainViewModel(application: Application) : BaseViewModel<MainState>(application) {
 
 
     override fun createInitialState(): MainState {
