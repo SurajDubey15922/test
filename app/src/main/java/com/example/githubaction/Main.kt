@@ -1,4 +1,4 @@
-package com.example.jacoco
+package com.example.githubaction
 
 import com.saurabhbadola.statesman.annotations.State
 import com.saurabhbadola.statesman.annotations.StateField
