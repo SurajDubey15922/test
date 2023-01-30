@@ -37,11 +37,11 @@ jobs:
             }
             run_with_retry
 
-      - name: Upload APK Debug - ${{ env.repository_name }}
+      - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) debug generated
-          path: ${{ env.main_project_module }}/build/outputs/apk/debug/
+          name: apk
+          path: app/build/outputs/apk/debug/app-debug.apk
 
 
 
