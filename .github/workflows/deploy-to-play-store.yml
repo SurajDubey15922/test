@@ -1,8 +1,8 @@
 name: Build
 on:
-  pull_request:
+  push:
     branches:
-      - 'master'
+      - 'deploy'
 
 jobs:
   build:
@@ -38,6 +38,14 @@ jobs:
           branch: ${{ github.ref }} # The branch where you commit
           base: master # Don't forget to specify the right base branch here
 
+      - name: Run Coverage
+        run: ./gradlew jacocoTestReport
+
+      - name: Upload JaCoCo coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: jacoco-report
+          path: app/build/reports/jacoco/jacocoTestReport/html/
 
 
 
