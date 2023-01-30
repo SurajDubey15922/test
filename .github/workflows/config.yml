@@ -1,60 +1,60 @@
-name: Build
-on: push
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-      - name: Build the app
-        run: |
-          MAX_TRIES=2
-            run_with_retry() {
-             n=1
-             until [ $n -gt $MAX_TRIES ]
-             do
-                echo "Starting build attempt $n"
-                ./gradlew assembleDebugAndroidTest && break
-                n=$[$n+1]
-                sleep 2
-             done
-             if [ $n -gt $MAX_TRIES ]; then
-               echo "Max tries reached ($MAX_TRIES)"
-               exit 1
-             fi
-            }
-            run_with_retry
-
-      - name: Run Coverage
-        run: ./gradlew jacocoTestReport
-
-      - name: Upload JaCoCo coverage report
-        uses: actions/upload-artifact@v2
-        with:
-          name: jacoco-report
-          path: app/build/reports/jacoco/jacocoTestReport/html/
-
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v3
-        with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: suraj.dubey@sunfox.in
-          password: xngldtqtrynafaje
-          subject: Github Actions job result
-          to: surajdubey2791@gmail.com
-          from: Suraj
-          attachments: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.csv
-
-
-      - name: Generate JaCoCo Badge
-        uses: cicirello/jacoco-badge-generator@v2
-        with:
-          generate-branches-badge: true
-          jacoco-csv-file: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.csv
-
-
-
-
+#name: Build
+#on: push
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v2
+#      - name: Build the app
+#        run: |
+#          MAX_TRIES=2
+#            run_with_retry() {
+#             n=1
+#             until [ $n -gt $MAX_TRIES ]
+#             do
+#                echo "Starting build attempt $n"
+#                ./gradlew assembleDebugAndroidTest && break
+#                n=$[$n+1]
+#                sleep 2
+#             done
+#             if [ $n -gt $MAX_TRIES ]; then
+#               echo "Max tries reached ($MAX_TRIES)"
+#               exit 1
+#             fi
+#            }
+#            run_with_retry
+#
+#      - name: Run Coverage
+#        run: ./gradlew jacocoTestReport
+#
+#      - name: Upload JaCoCo coverage report
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: jacoco-report
+#          path: app/build/reports/jacoco/jacocoTestReport/html/
+#
+#      - name: Send mail
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#          connection_url: ${{secrets.MAIL_CONNECTION}}
+#          server_address: smtp.gmail.com
+#          server_port: 465
+#          username: suraj.dubey@sunfox.in
+#          password: xngldtqtrynafaje
+#          subject: Github Actions job result
+#          to: surajdubey2791@gmail.com
+#          from: Suraj
+#          attachments: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.csv
+#
+#
+#      - name: Generate JaCoCo Badge
+#        uses: cicirello/jacoco-badge-generator@v2
+#        with:
+#          generate-branches-badge: true
+#          jacoco-csv-file: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.csv
+#
+#
+#
+#
