@@ -30,11 +30,14 @@ jobs:
             }
             run_with_retry
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v1
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
         with:
-          name: app
-          path: app/build/outputs/apk/debug/app-debug.apk
+          commit-message: Auto Pull Request
+          title: Your desired title
+          body: Auto-created Pull Request
+          branch: ${{ github.ref }} # The branch where you commit
+          base: master # Don't forget to specify the right base branch here
 
       - name: Run Coverage
         run: ./gradlew jacocoTestReport
