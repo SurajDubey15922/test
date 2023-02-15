@@ -1,26 +1,26 @@
-name: Build
-on:
-  push:
-    branches:
-      - 'deploy'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          branch: ${{ github.ref }} # The branch where you commit
-          base: master # Don't forget to specify the right base branch here
-
-
-
-
-
-
-
-
-
+#name: Build
+#on:
+#  push:
+#    branches:
+#      - 'deploy'
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v2
+#      - name: Create Pull Request
+#        uses: peter-evans/create-pull-request@v4
+#        with:
+#          branch: ${{ github.ref }} # The branch where you commit
+#          base: master # Don't forget to specify the right base branch here
+#
+#
+#
+#
+#
+#
+#
+#
+#
